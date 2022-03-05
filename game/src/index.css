@@ -12,7 +12,10 @@
 body {
     font-family: "Harmony_Regular", "pingfang sc", "Microsoft YaHei", "微软雅黑",
         "宋体", Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #8070ff, #f73859);
+    background: radial-gradient(circle, #4a009a 0%, #080223 100%);
+}
+html {
+    background: radial-gradient(circle, #4a009a 0%, #080223 100%);
 }
 .header-container {
     padding-top: 30px;

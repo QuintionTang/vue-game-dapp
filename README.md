@@ -43,3 +43,9 @@ yarn serve
 ```
 
 即可正常启动。
+
+### 体验
+
+![GAME UI](https://s2.51cto.com/images/20220305/1646465891354624.jpeg?x-oss-process=image/watermark,size_14,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=)
+
+**体验地址：**[https://web3-game.crayon.dev/](https://web3-game.crayon.dev/)

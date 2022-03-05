@@ -1,64 +1,97 @@
 <template>
     <div class="arena-container">
-        <div class="boss-container" v-if="boss">
-            <div id="toast" className="show">
-                <div id="desc">
-                    {{
-                        `💥 ${boss.name} 战斗损耗 ${characterNFT.attackDamage}!`
-                    }}
-                </div>
-            </div>
-            <div :class="`boss-content ${attackState}`">
-                <h2>🔥 {{ boss.name }} 🔥</h2>
-                <div class="image-content">
-                    <img :src="boss.imageURI" :alt="`Boss ${boss.name}`" />
-                    <div class="health-bar">
-                        <progress :value="boss.hp" :max="boss.maxHp" />
-                        <p>{{ `${boss.hp} / ${boss.maxHp} HP` }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="attack-container">
-                <button class="cta-button" @click="attackAction">
-                    {{ `💥 战 ${boss.name}` }}
-                </button>
+        <div class="container">
+            <div>
                 <div
                     class="loading-indicator"
                     v-if="attackState === 'attacking'"
                 >
-                    <div class="attacking-box">⚔️ 战斗中</div>
-                    <LoadingIndicator />
+                    <div class="loading-indicator-in">
+                        <div class="attacking-box">⚔️ 战斗中</div>
+                        <Fighting />
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="players-container" v-if="characterNFT">
-            <div class="player-container">
-                <h2>你的英雄</h2>
-                <div class="player">
-                    <div class="image-content">
-                        <h2>{{ characterNFT.name }}</h2>
-                        <img
-                            :src="characterNFT.imageURI"
-                            :alt="`Character
-            ${characterNFT.name}`"
-                        />
-                        <div class="health-bar">
-                            <progress
-                                :value="characterNFT.hp"
-                                :max="characterNFT.maxHp"
-                            />
-                            <p>
-                                {{
-                                    `${characterNFT.hp} / ${characterNFT.maxHp} HP`
-                                }}
-                            </p>
+                <div class="result-content">
+                    <div class="attack-container">
+                        <button class="cta-button" @click="attackAction">
+                            <span>{{ `💥 战 ${boss.name}` }} </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="arena-box">
+                    <div class="thumb-img ml-xl-50-none">
+                        <div class="boss-container" v-if="boss">
+                            <div id="toast" className="show">
+                                <div id="desc">
+                                    {{
+                                        `💥 &nbsp;&nbsp;${boss.name} 战斗损耗 ${characterNFT.attackDamage}`
+                                    }}
+                                </div>
+                            </div>
+                            <div :class="`boss-content ${attackState}`">
+                                <div class="grid-inner">
+                                    <h2 class="grid-name">
+                                        🔥 {{ boss.name }} 🔥
+                                    </h2>
+                                    <div class="image-content">
+                                        <img
+                                            :src="boss.imageURI"
+                                            :alt="`Boss ${boss.name}`"
+                                        />
+                                    </div>
+                                    <div class="health-bar">
+                                        <progress
+                                            :value="boss.hp"
+                                            :max="boss.maxHp"
+                                        />
+                                        <p>
+                                            {{
+                                                `${boss.hp} / ${boss.maxHp} HP`
+                                            }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="stats">
-                        <h4>
-                            {{ `⚔️ 战斗损耗： ${characterNFT.attackDamage}` }}
-                        </h4>
+                    <div class="thumb-vs">
+                        <img src="/assets/images/vs.png" alt="" />
+                    </div>
+                    <div class="thumb-img mr-xl-50-none">
+                        <div class="boss-container" v-if="characterNFT">
+                            <div class="stats">
+                                <div class="desc">
+                                    {{
+                                        `⚔️  &nbsp;&nbsp;战斗损耗： ${characterNFT.attackDamage}`
+                                    }}
+                                </div>
+                            </div>
+                            <div class="boss-content ${attackState}">
+                                <div class="grid-inner">
+                                    <h2 class="grid-name">
+                                        ⚔️ {{ characterNFT.name }} ⚔️
+                                    </h2>
+                                    <div class="image-content">
+                                        <img
+                                            :src="characterNFT.imageURI"
+                                            :alt="`Character
+            ${characterNFT.name}`"
+                                        />
+                                    </div>
+                                    <div class="health-bar">
+                                        <progress
+                                            :value="characterNFT.hp"
+                                            :max="characterNFT.maxHp"
+                                        />
+                                        <p>
+                                            {{
+                                                `${characterNFT.hp} / ${characterNFT.maxHp} HP`
+                                            }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,10 +100,10 @@
 </template>
 
 <script>
-import LoadingIndicator from "./LoadingIndicator.vue";
+import Fighting from "./Fighting.vue";
 export default {
     components: {
-        LoadingIndicator,
+        Fighting,
     },
     methods: {
         async attackAction() {
@@ -100,30 +133,64 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: auto;
+    padding-top: 200px;
     color: white;
+    height: 950px;
+    margin-top: -170px;
+    margin-bottom: 30px;
+    background: url(/assets/images/bg.jpeg) center no-repeat;
+}
+.arena-container .container {
+    max-width: 1200px;
+    position: relative;
+}
+.ml-xl-50-none {
+    margin-left: -50px;
+}
+.mr-xl-50-none {
+    margin-right: -50px;
+}
+.arena-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+}
+.thumb-vs {
+    padding-top: 320px;
+}
+.arena-box .thumb-img {
+    width: 420px;
+    height: 590px;
+    position: relative;
+    animation: rotating 15s linear infinite;
+}
+.grid-name {
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 50px;
 }
 .arena-container .boss-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    position: relative;
     margin-bottom: 50px;
 }
+.result-content {
+    padding-top: 100px;
+    text-align: center;
+    margin-bottom: -150px;
+}
+.grid-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 .boss-container .boss-content {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    width: 100%;
     padding: 15px;
+    height: 100%;
     border-radius: 10px;
-    background-image: linear-gradient(
-        to right,
-        #ff8177 0%,
-        #ff867a 0%,
-        #ff8c7f 21%,
-        #f99185 52%,
-        #cf556c 78%,
-        #b12a5b 100%
-    );
-    background-size: 600% 600%;
-    animation: gradient-animation 8s ease infinite;
     margin-bottom: 25px;
 }
 .boss-content h2 {
@@ -133,18 +200,20 @@ export default {
 .boss-content .image-content,
 .player .image-content {
     position: relative;
+    height: 390px;
 }
 .boss-content .image-content img {
-    max-width: 400px;
+    max-width: 100%;
     border-radius: 10px;
     object-fit: cover;
 }
-.image-content .health-bar {
+.health-bar {
     position: absolute;
-    bottom: 40px;
+    bottom: -70px;
     left: 0;
     width: 100%;
     height: 40px;
+    color: #fff;
 }
 .image-content h2 {
     font-size: 16px;
@@ -153,26 +222,24 @@ export default {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 100%;
 }
 .health-bar progress[value]::-webkit-progress-bar {
-    background-color: #e5652e;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    background-color: rgba(#e5652e, 0.5);
+    border-radius: 15px;
     overflow: hidden;
 }
-.stats {
-    font-size: 24px;
-}
 .health-bar progress[value]::-webkit-progress-value {
-    background-color: #70cb1b;
+    background-color: rgba(#70cb1b, 0.5);
 }
 .health-bar p {
+    display: block;
     position: absolute;
     width: 100%;
+    height: 40px;
+    line-height: 40px;
     font-weight: bold;
     font-size: 14px;
-    color: black;
+    color: #fff;
     bottom: -10px;
 }
 .arena-container .players-container {
@@ -230,9 +297,10 @@ export default {
     flex-direction: column;
     justify-content: center;
 }
-.attack-container button {
-    height: 60px;
-    font-size: 18px;
+.boss-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 /* Effects */
 .boss-container .attacking {
@@ -281,37 +349,36 @@ export default {
     }
 }
 /* Toast */
-#toast {
-    visibility: hidden;
-    max-width: 600px;
-    height: 90px;
-    margin: auto;
-    background-color: gray;
-    color: #fff;
-    text-align: center;
-    border-radius: 10px;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    bottom: 30px;
-    font-size: 17px;
-    white-space: nowrap;
+#toast,
+.stats {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
 }
-#toast #desc {
+#toast #desc,
+.stats .desc {
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 28px;
+    font-size: 16px;
     font-weight: bold;
-    height: 90px;
+    height: 40px;
     overflow: hidden;
     white-space: nowrap;
 }
-.boss-container .loading-indicator {
+.loading-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+.loading-indicator-in {
     position: relative;
-    padding-top: 25px;
+    width: 100%;
+    height: 100%;
 }
 .boss-container .loading-indicator p {
     font-weight: bold;
@@ -322,8 +389,6 @@ export default {
     z-index: 10;
     left: 30px;
     right: 30px;
-    top: 40px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
+    bottom: 160px;
 }
 </style>

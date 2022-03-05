@@ -1,6 +1,6 @@
 <template>
     <div class="app" id="app">
-        <div class="container mx-auto">
+        <div class="mx-auto">
             <div class="header-container">
                 <p class="header gradient-text">⚔️ 三英战吕布 ⚔️</p>
                 <p class="sub-text">
@@ -15,7 +15,7 @@
                         class="cta-button connect-wallet-button"
                         @click="connect"
                     >
-                        连接钱包并开始
+                        <span>连接钱包并开始</span>
                     </button>
                 </div>
                 <select-character v-else-if="account && !characterNFT" />
@@ -105,60 +105,65 @@ export default {
     background-color: #a200d6;
 }
 .cta-button {
-    background: transparent;
     padding: 10px 25px;
     margin: 0 8px;
     text-align: center;
     touch-action: manipulation;
-    transition: all 0.3s ease 0s;
     font-size: 32px;
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
     z-index: 1;
-    color: #1c1121;
+    color: #fff;
+    font-weight: 700;
+    line-height: 60px;
+    transition: 0.3s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+    border-radius: 3px;
 }
-.cta-button::before {
-    content: "";
-    position: absolute;
-    right: -13px;
-    top: 0;
-    height: 100%;
-    width: 5px;
-    transform: skewX(-16deg);
-    z-index: 1;
-    opacity: 1;
-    bottom: 0;
-    border-radius: 0;
-    left: auto;
-    background-color: #e4a101;
-    background-image: url(/assets/images/btn_overlay.png);
-    transition: 0.3s linear;
+.cta-button span {
+    position: inherit;
+    z-index: 2;
 }
+.cta-button::before,
 .cta-button::after {
     content: "";
     position: absolute;
-    right: 0;
     top: 0;
+    left: 0;
+    transition: 0.3s cubic-bezier(0.79, 0.14, 0.15, 0.86);
     height: 100%;
     width: 100%;
-    transform: skewX(-16deg);
-    z-index: -1;
-    opacity: 1;
-    bottom: 0;
-    border-radius: 0;
-    left: auto;
-    background-color: #e4a101;
-    background-image: url(/assets/images/btn_overlay.png);
+    border-radius: 4px;
+}
+.cta-button::before {
+    content: "";
+    background-color: #ff0052;
+    z-index: 1;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+.cta-button::after {
+    content: "";
+    background-color: #fff;
+    transform: translate(4px, 4px);
+    z-index: 0;
+}
+.cta-button:hover {
+    color: #ff0052;
+    transform: translate(4px, 4px);
+}
+.cta-button:hover::after {
+    background-color: #ff0052;
+    transform: translate(-4px, -4px);
 }
 .cta-button:hover::before {
-    right: 0;
+    background-color: #ffffff;
 }
 .connect-wallet-container {
     display: flex;
     flex-direction: column;
     margin: auto;
     max-width: 550px;
+    margin-bottom: 30px;
 }
 .connect-wallet-container img {
     padding-bottom: 20px;
