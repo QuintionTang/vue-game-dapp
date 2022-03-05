@@ -13,6 +13,9 @@ body {
     font-family: "Harmony_Regular", "pingfang sc", "Microsoft YaHei", "微软雅黑",
         "宋体", Arial, Helvetica, sans-serif;
     background: radial-gradient(circle, #4a009a 0%, #080223 100%);
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
 }
 html {
     background: radial-gradient(circle, #4a009a 0%, #080223 100%);
@@ -41,11 +44,17 @@ html {
     width: 100%;
     height: 100%;
     display: flex;
+    font-size: 18px;
     flex-direction: column;
     align-items: center;
     color: #fff;
 }
-
+.footer-container {
+    margin-top: 30px;
+}
+.mt-5 {
+    margin-bottom: 50px;
+}
 .select-character-container .character-grid {
     width: 100%;
     display: grid;

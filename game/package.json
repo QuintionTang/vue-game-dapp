@@ -1,5 +1,6 @@
 {
   "name": "game",
+  "description": "使用 Solidity、Web3 和 Vue.js 创建区块链游戏：三英战吕布 ",
   "version": "0.1.0",
   "private": true,
   "scripts": {

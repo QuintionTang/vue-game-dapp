@@ -40,15 +40,17 @@
                                         />
                                     </div>
                                     <div class="health-bar">
-                                        <progress
-                                            :value="boss.hp"
-                                            :max="boss.maxHp"
-                                        />
-                                        <p>
-                                            {{
-                                                `${boss.hp} / ${boss.maxHp} HP`
-                                            }}
-                                        </p>
+                                        <div class="health-barin">
+                                            <progress
+                                                :value="boss.hp"
+                                                :max="boss.maxHp"
+                                            ></progress>
+                                            <p>
+                                                {{
+                                                    `${boss.hp} / ${boss.maxHp} HP`
+                                                }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -79,15 +81,17 @@
                                         />
                                     </div>
                                     <div class="health-bar">
-                                        <progress
-                                            :value="characterNFT.hp"
-                                            :max="characterNFT.maxHp"
-                                        />
-                                        <p>
-                                            {{
-                                                `${characterNFT.hp} / ${characterNFT.maxHp} HP`
-                                            }}
-                                        </p>
+                                        <div class="health-barin">
+                                            <progress
+                                                :value="characterNFT.hp"
+                                                :max="characterNFT.maxHp"
+                                            />
+                                            <p>
+                                                {{
+                                                    `${characterNFT.hp} / ${characterNFT.maxHp} HP`
+                                                }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -169,6 +173,7 @@ export default {
     width: 100%;
     position: absolute;
     left: 0px;
+    font-size: 36px;
     bottom: 50px;
 }
 .arena-container .boss-container {
@@ -212,16 +217,27 @@ export default {
     bottom: -70px;
     left: 0;
     width: 100%;
-    height: 40px;
+    height: 50px;
     color: #fff;
 }
 .image-content h2 {
     font-size: 16px;
 }
+.health-barin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 .health-bar progress[value] {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    z-index: 1;
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 .health-bar progress[value]::-webkit-progress-bar {
     background-color: rgba(#e5652e, 0.5);
@@ -235,12 +251,16 @@ export default {
     display: block;
     position: absolute;
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 50px;
+    padding: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    line-height: 50px;
     font-weight: bold;
     font-size: 14px;
     color: #fff;
-    bottom: -10px;
 }
 .arena-container .players-container {
     width: 100%;

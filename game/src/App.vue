@@ -23,7 +23,7 @@
             </div>
             <div class="footer-container">
                 <img
-                    alt="Twitter Logo"
+                    alt="DevPoint Twitter"
                     class="twitter-logo"
                     src="./assets/twitter-logo.svg"
                 />
@@ -109,7 +109,7 @@ export default {
     margin: 0 8px;
     text-align: center;
     touch-action: manipulation;
-    font-size: 32px;
+    font-size: 28px;
     vertical-align: middle;
     white-space: nowrap;
     position: relative;

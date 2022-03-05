@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+import VuePageTitle from "vue-page-title";
 import store from "./store";
 import "./index.css";
 
