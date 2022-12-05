@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "ethers": "^5.5.4",
     "vue": "^2.6.11",
+    "vue-page-title": "^2.1.1",
     "vuex": "^3.3.0"
   },
   "devDependencies": {

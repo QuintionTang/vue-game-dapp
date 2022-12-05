@@ -25,7 +25,7 @@ export default new Vuex.Store({
         characters: [],
         boss: null,
         attackState: null,
-        contract_address: "0x0006544b9c915Ab3cb0e8aC5d21000E4a4ABE746", // 合约地址
+        contract_address: "0xeE45c5A2C4a44bDD17e7C5Ba73ee47F63a9244d8", // 合约地址
     },
     getters: {
         account: (state) => state.account,
@@ -82,12 +82,12 @@ export default new Vuex.Store({
         },
         async checkNetwork({ commit, dispatch }) {
             let chainId = await ethereum.request({ method: "eth_chainId" });
-            const ropstenChainId = "0x3";
-            if (chainId !== ropstenChainId) {
+            const goerliChainId = "0x5";
+            if (chainId !== goerliChainId) {
                 if (!(await dispatch("switchNetwork"))) {
                     commit(
                         "setError",
-                        "You are not connected to the Ropsten Test Network!"
+                        "You are not connected to the Goerli Test Network!"
                     );
                 }
             }
@@ -96,7 +96,7 @@ export default new Vuex.Store({
             try {
                 await ethereum.request({
                     method: "wallet_switchEthereumChain",
-                    params: [{ chainId: "0x3" }],
+                    params: [{ chainId: "0x5" }],
                 });
                 return 1;
             } catch (switchError) {

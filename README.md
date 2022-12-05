@@ -18,10 +18,10 @@ npm install
 npx hardhat test
 ```
 
-发布部署合约，下面的指令为部署到 ETH 测试网络 ropsten
+发布部署合约，下面的指令为部署到 ETH 测试网络 goerli
 
 ```
-npx hardhat run scripts/deploy.js --network ropsten
+npx hardhat run scripts/deploy.js --network goerli
 ```
 
 进入前端目录：
