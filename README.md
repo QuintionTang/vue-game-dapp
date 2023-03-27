@@ -18,11 +18,30 @@ npm install
 npx hardhat test
 ```
 
-发布部署合约，下面的指令为部署到 ETH 测试网络 goerli
+### 合约部署
+
+#### 部署到 Goerli 测试网络
+
+发布部署合约，下面的指令为部署到 ETH 测试网络 Goerli
 
 ```
 npx hardhat run scripts/deploy.js --network goerli
 ```
+
+#### 部署到 Sepolia 测试网络
+
+发布部署合约，下面的指令为部署到 ETH 测试网络 Sepolia
+
+```
+npx hardhat run scripts/deploy.js --network sepolia
+```
+
+#### 水龙头
+
+-   测试网络 Goerli：https://goerlifaucet.com/，每个账号每天可以获取 `0.1ETH`
+-   测试网络 Sepolia：https://sepoliafaucet.com/ ，每个账号每天可以获取 `0.5ETH`
+
+### 前端运行
 
 进入前端目录：
 
@@ -34,6 +53,14 @@ cd game
 
 ```
 yarn install
+```
+
+设置合约地址
+
+编辑文件 `.env`，把部署的合约地址填入。
+
+```
+CONTRACT_ADDRESS="0xe"
 ```
 
 启动前端
