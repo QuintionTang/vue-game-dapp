@@ -38,7 +38,7 @@ npx hardhat run scripts/deploy.js --network sepolia
 
 #### 水龙头
 
--   测试网络 Goerli：https://goerlifaucet.com/，每个账号每天可以获取 `0.1ETH`
+-   测试网络 Goerli：https://goerlifaucet.com/， 每个账号每天可以获取 `0.1ETH`，由于水龙头紧张，现在领取的钱包地址必须主网有用一点额度
 -   测试网络 Sepolia：https://sepoliafaucet.com/ ，每个账号每天可以获取 `0.5ETH`
 
 ### 前端运行
