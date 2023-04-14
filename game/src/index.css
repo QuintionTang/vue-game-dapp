@@ -111,6 +111,43 @@ html {
     font-weight: 700;
     font-size: 16px;
 }
+.github-container {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    padding-top: 10px;
+    right: 10px;
+    top: 0px;
+    text-align: right;
+    z-index: 10;
+}
+.github-container a {
+    display: inline-flex;
+    padding: 5px 10px;
+    color: #24292f;
+    background-color: #ebf0f4;
+    border: 1px sold rgba(31, 35, 40, 0.15);
+    border-radius: 5px;
+    background-image: -moz-linear-gradient(top, #f6f8fa, #ebf0f4 90%);
+    background-image: linear-gradient(180deg, #f6f8fa, #ebf0f4 90%);
+    font-size: 12px;
+}
+.github-container a:hover {
+    background-color: #e9ebef;
+    background-position: 0 -0.5em;
+    border-color: #cbcdd1;
+    border-color: rgba(31, 35, 40, 0.15);
+    background-image: -moz-linear-gradient(top, #f3f4f6, #e9ebef 90%);
+    background-image: linear-gradient(180deg, #f3f4f6, #e9ebef 90%);
+}
+.github-container a svg,
+.github-container a span {
+    float: left;
+    font-weight: bold;
+}
+.github-container a svg {
+    margin: 2px 5px 2px 0px;
+}
 @media (min-width: 1536px) {
     .container {
         max-width: 1280px;
